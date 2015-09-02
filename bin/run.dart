@@ -2,7 +2,7 @@ import "dart:async";
 import "dart:convert";
 
 import "package:dslink/dslink.dart";
-import "package:dslink/nodes.dart";
+import "package:dslink/nodes.dart" hide DeleteActionNode;
 
 import "package:dart_feed/dart_feed.dart";
 import "package:xml/xml.dart";
@@ -49,6 +49,26 @@ main(List<String> args) async {
   }, autoInitialize: false);
   link.init();
   link.connect();
+}
+
+/// An Action for Deleting a Given Node
+class DeleteActionNode extends SimpleNode {
+  final String targetPath;
+
+  /// When this action is invoked, [provider.removeNode] will be called with [targetPath].
+  DeleteActionNode(String path, SimpleNodeProvider provider, this.targetPath) : super(path, provider);
+
+  /// When this action is invoked, [provider.removeNode] will be called with the parent of this action.
+  DeleteActionNode.forParent(String path, SimpleNodeProvider provider)
+    : this(path, provider, new Path(path).parentPath);
+
+  /// Handles an action invocation and deletes the target path.
+  @override
+  Object onInvoke(Map<String, dynamic> params) {
+    provider.removeNode(targetPath);
+    link.save();
+    return {};
+  }
 }
 
 class FeedNode extends SimpleNode {
