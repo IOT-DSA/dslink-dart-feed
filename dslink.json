@@ -1,0 +1,21 @@
+{
+  "name": "dslink-dart-feed",
+  "version": "1.0.0",
+  "description": "RSS Feed DSLink",
+  "main": "bin/run.dart",
+  "engines": {
+    "dart": ">=1.9.0"
+  },
+  "getDependencies": [
+    "pub get"
+  ],
+  "configs": {
+    "broker": {
+      "type": "url"
+    },
+    "name": {
+      "type": "string",
+      "default": "Feed"
+    }
+  }
+}

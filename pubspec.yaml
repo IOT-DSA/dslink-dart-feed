@@ -1,0 +1,7 @@
+name: dslink_rss_feed
+description: RSS Feed DSLink
+dependencies:
+  dslink:
+    git: https://github.com/IOT-DSA/sdk-dslink-dart.git
+  dart_feed:
+    git: https://github.com/kaendfinger/DartFeed.git
