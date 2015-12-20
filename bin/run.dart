@@ -148,7 +148,7 @@ class FeedNode extends SimpleNode {
         },
         "Published": {
           r"$type": "string",
-          "?value": item.pubDate.toIso8601String()
+          "?value": item.pubDate != null ? item.pubDate.toIso8601String() : "Unknown"
         },
         "Description": {
           r"$type": "string",
