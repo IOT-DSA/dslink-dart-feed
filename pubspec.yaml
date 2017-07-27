@@ -1,7 +1,11 @@
 name: dslink_rss_feed
 description: RSS Feed DSLink
 dependencies:
+  xml: "^2.5.0"
+  crypto: "^2.0.2"
+  convert: "^2.0.1"
   dslink:
     git: https://github.com/IOT-DSA/sdk-dslink-dart.git
   dart_feed:
-    git: https://github.com/IOT-DSA/DartFeed.git
+    # git: https://github.com/IOT-DSA/DartFeed.git
+    path: ../DartFeed

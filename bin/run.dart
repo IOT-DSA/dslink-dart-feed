@@ -6,7 +6,9 @@ import "package:dslink/nodes.dart" hide DeleteActionNode;
 
 import "package:dart_feed/dart_feed.dart";
 import "package:xml/xml.dart";
-import "package:crypto/crypto.dart";
+
+import "package:crypto/crypto.dart" show sha1, Digest;
+import "package:convert/convert.dart" show hex;
 
 LinkProvider link;
 
@@ -173,9 +175,7 @@ class FeedNode extends SimpleNode {
 }
 
 String createHashString(String name) {
-  var hash = new SHA1();
-  hash.add(UTF8.encode(name));
-  var result = hash.close();
-  return CryptoUtils.bytesToHex(result);
+  Digest digest = sha1.convert(UTF8.encode(name));
+  return hex.encode(digest.bytes);
 }
 
