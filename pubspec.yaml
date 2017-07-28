@@ -7,5 +7,5 @@ dependencies:
   dslink:
     git: https://github.com/IOT-DSA/sdk-dslink-dart.git
   dart_feed:
-    # git: https://github.com/IOT-DSA/DartFeed.git
-    path: ../DartFeed
+    git: https://github.com/IOT-DSA/DartFeed.git
+    # path: ../DartFeed
