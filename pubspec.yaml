@@ -1,7 +1,7 @@
 name: dslink_rss_feed
 description: RSS Feed DSLink
 dependencies:
-  xml: "^2.5.0"
+  xml: any
   crypto: "^2.0.2"
   convert: "^2.0.1"
   dslink:
